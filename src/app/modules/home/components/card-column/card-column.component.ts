@@ -10,6 +10,4 @@ import { Component, Input } from '@angular/core';
 export class CardColumnComponent {
   @Input() public title: string = "";
   @Input() public color: string = "";
-
-
 }

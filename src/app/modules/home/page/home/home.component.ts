@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent implements OnInit {
   public cardsList: ICardData[] = [
     {
+      id: 1,
       name: "Fazer comida",
       description: "Fazer comida para minha mãe pq sou um bom filho",
       instancyLevel: EInstancyLevel.Urgente,
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
       doingState: EDoingState.Making,
     },
     {
+      id: 2,
       name: "Investir 10K em bitcoin",
       description: "investir no bitcoin que está subindo",
       instancyLevel: EInstancyLevel.Tranquilo,
@@ -28,6 +30,7 @@ export class HomeComponent implements OnInit {
       doingState: EDoingState.New,
     },
     {
+      id: 3,
       name: "Estudar programação",
       description: "Estudar",
       instancyLevel: EInstancyLevel.Moderado,
@@ -35,6 +38,7 @@ export class HomeComponent implements OnInit {
       doingState: EDoingState.Finish,
     },
     {
+      id: 4,
       name: "Beber água",
       description: "Ir no bebedouro, pegar um copo e bebr água",
       instancyLevel: EInstancyLevel.Urgente,
@@ -42,9 +46,26 @@ export class HomeComponent implements OnInit {
       doingState: EDoingState.New,
     },
     {
+      id: 5,
       name: "Fazer comida",
       description: "Fazer comida para minha mãe pq sou um bom filho",
       instancyLevel: EInstancyLevel.Moderado,
+      startDate: new Date(),
+      doingState: EDoingState.New,
+    },
+    {
+      id: 6,
+      name: "Programar",
+      description: "Fazer uma programação de um appppp",
+      instancyLevel: EInstancyLevel.Tranquilo,
+      startDate: new Date(),
+      doingState: EDoingState.New,
+    },
+    {
+      id: 7,
+      name: "Por leite no fogão",
+      description: "AGORA!!!!!!",
+      instancyLevel: EInstancyLevel.Urgente,
       startDate: new Date(),
       doingState: EDoingState.New,
     },
@@ -56,6 +77,15 @@ export class HomeComponent implements OnInit {
   public finishCardsList: ICardData[] = [];
 
   ngOnInit(): void {
+    this.separateLists();
+  }
+
+  public updateCardsList(): void {
+    this.separateLists();
+  }
+
+  public onDeleteCard(card: ICardData): void {
+    this.cardsList = this.cardsList.filter(c => c.id != card.id);
     this.separateLists();
   }
 

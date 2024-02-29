@@ -32,22 +32,22 @@
     <div class="col-8 d-flex align-items-center justify-content-between">
         <app-card-column [title]="'Novas'" [color]="'#1E2160'">
             <div *ngFor="let card of newCardsList">
-                <app-card [card]="card"></app-card>
+                <app-card [card]="card" (cardMove)="updateCardsList()" (deleteCard)="onDeleteCard(card)"></app-card>
             </div>
         </app-card-column>
         <app-card-column [title]="'Fazendo'" [color]="'#601E1E'">
             <div *ngFor="let card of makingCardsList">
-                <app-card [card]="card"></app-card>
+                <app-card [card]="card" (cardMove)="updateCardsList()" (deleteCard)="onDeleteCard(card)"></app-card>
             </div>
         </app-card-column>
         <app-card-column [title]="'Testando'" [color]="'#4F601E'">
             <div *ngFor="let card of testCardsList">
-                <app-card [card]="card"></app-card>
+                <app-card [card]="card" (cardMove)="updateCardsList()" (deleteCard)="onDeleteCard(card)"></app-card>
             </div>
         </app-card-column>
         <app-card-column [title]="'Prontas'" [color]="'#1E6029'">
             <div *ngFor="let card of finishCardsList">
-                <app-card [card]="card"></app-card>
+                <app-card [card]="card" (cardMove)="updateCardsList()" (deleteCard)="onDeleteCard(card)"></app-card>
             </div>
         </app-card-column>
     </div>

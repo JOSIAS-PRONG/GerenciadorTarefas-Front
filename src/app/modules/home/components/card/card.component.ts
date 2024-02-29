@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export interface ICardData {
   id: number;
@@ -32,6 +32,8 @@ export enum EInstancyLevel {
 })
 export class CardComponent implements OnInit {
   @Input() public card: ICardData = {} as ICardData;
+  @Output() private cardMove: EventEmitter<void> = new EventEmitter<void>();
+  @Output() private deleteCard: EventEmitter<void> = new EventEmitter<void>();
 
   public instancyText: string = "";
 
@@ -57,4 +59,17 @@ export class CardComponent implements OnInit {
     return EInstancyLevel;
   }
 
+  public onDelete(): void {
+    this.deleteCard.emit();
+  }
+
+  public moveToLeft(): void {
+    this.card.doingState -= 1;
+    this.cardMove.emit();
+  }
+
+  public moveToRight(): void {
+    this.card.doingState += 1;
+    this.cardMove.emit();
+  }
 }
