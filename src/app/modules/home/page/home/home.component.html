@@ -31,20 +31,24 @@
     </div>
     <div class="col-8 d-flex align-items-center justify-content-between">
         <app-card-column [title]="'Novas'" [color]="'#1E2160'">
-            <app-card></app-card>
-            <app-card></app-card>
+            <div *ngFor="let card of newCardsList">
+                <app-card [card]="card"></app-card>
+            </div>
         </app-card-column>
         <app-card-column [title]="'Fazendo'" [color]="'#601E1E'">
-            <app-card></app-card>
-            <app-card></app-card>
+            <div *ngFor="let card of makingCardsList">
+                <app-card [card]="card"></app-card>
+            </div>
         </app-card-column>
         <app-card-column [title]="'Testando'" [color]="'#4F601E'">
-            <app-card></app-card>
-            <app-card></app-card>
+            <div *ngFor="let card of testCardsList">
+                <app-card [card]="card"></app-card>
+            </div>
         </app-card-column>
         <app-card-column [title]="'Prontas'" [color]="'#1E6029'">
-            <app-card></app-card>
-            <app-card></app-card>
+            <div *ngFor="let card of finishCardsList">
+                <app-card [card]="card"></app-card>
+            </div>
         </app-card-column>
     </div>
 </div>
