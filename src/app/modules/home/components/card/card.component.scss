@@ -1,0 +1,21 @@
+.caixa {
+    width: 200px;
+    height: 100px;
+    background-color: #79A7FF;
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .caixa {
+    display: flex;
+    align-items: center;
+}
+
+.caixa svg {
+    margin-right: 10px; /* Espaçamento entre os elementos */
+}
+
+.caixa p {
+    margin: 0; /* Remover margem padrão do parágrafo */
+}
