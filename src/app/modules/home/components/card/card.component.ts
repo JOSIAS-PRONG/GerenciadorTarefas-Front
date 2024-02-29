@@ -1,6 +1,8 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 export interface ICardData {
+  id: number;
   name: string;
   description: string;
   instancyLevel: EInstancyLevel;
@@ -24,7 +26,7 @@ export enum EInstancyLevel {
 @Component({
   selector: 'app-card',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
@@ -46,4 +48,13 @@ export class CardComponent implements OnInit {
         break;
     }
   }
+
+  public get EDoingState(): typeof EDoingState {
+    return EDoingState;
+  }
+
+  public get EInstancyLevel(): typeof EInstancyLevel {
+    return EInstancyLevel;
+  }
+
 }

@@ -1,29 +1,33 @@
-<div class="caixa">
-  <div>
-    <svg width="50" height="50" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<div class="caixa d-flex align-items-center justify-content-between"
+  [ngClass]="{'quit': card.instancyLevel == EInstancyLevel.Tranquilo, 'moderate': card.instancyLevel == EInstancyLevel.Moderado,'urgent': card.instancyLevel == EInstancyLevel.Urgente}">
+  <div *ngIf="card.doingState != EDoingState.New">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_216_936)">
         <path d="M18.125 21.25L11.875 15L18.125 8.75" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
       </g>
       <defs>
         <clipPath id="clip0_216_936">
-          <rect width="50" height="50" fill="white" />
+          <rect width="30" height="30" fill="white" />
         </clipPath>
       </defs>
     </svg>
   </div>
-  <div>
-    <p class="name">{{card.name}}</p>
-    <p class="start">{{card.startDate}}</p>
-    <p class="instancy">{{instancyText}}</p>
+  <div class="d-flex flex-column align-items-start justify-content-between box-text"
+    [ngClass]="{'ps-3': card.doingState == EDoingState.New, 'pe-3': card.doingState == EDoingState.Finish}">
+    <p class="name font-light">{{card.name}}</p>
+    <div>
+      <p class="start font-medium">Ínicio: {{card.startDate.getDate()+'/'+card.startDate.getMonth()+1}}</p>
+      <p class="instancy font-medium">{{instancyText}}</p>
+    </div>
   </div>
-  <div>
-    <svg width="50" height="50" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <div *ngIf="card.doingState != EDoingState.Finish">
+    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_216_944)">
         <path d="M11.875 8.75L18.125 15L11.875 21.25" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
       </g>
       <defs>
         <clipPath id="clip0_216_944">
-          <rect width="50" height="50" fill="white" />
+          <rect width="30" height="30" fill="white" />
         </clipPath>
       </defs>
     </svg>
