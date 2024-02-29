@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CardComponent } from "./modules/home/components/card/card.component";
+import { FooterComponent } from './modules/shared/components/footer/footer.component';
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss',
-    imports: [RouterOutlet, CardComponent]
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, FooterComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'kanbanProject';
