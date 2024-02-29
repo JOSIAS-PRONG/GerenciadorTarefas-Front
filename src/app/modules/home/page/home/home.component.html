@@ -1,3 +1,54 @@
-<div class="col-12 d-flex align-items-center justify-content-center">
-    <app-card></app-card>
+<div class="col-12 d-flex flex-column align-items-center justify-content-center">
+    <div class="col-10 mb-5 mt-3 d-flex">
+        <div class="col-4 d-flex flex-column align-items-start justify-content-between">
+            <h1 class="mb-4">
+                Kanban
+            </h1>
+            <a href="/card" class="d-flex align-items-center justify-content-start button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 12H12M12 12H17M12 12V7M12 12V17" stroke="black" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <p class="font-semibold">
+                    Criar Tarefa
+                </p>
+            </a>
+        </div>
+        <div class="col-6 d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center color-box">
+                <div class="color-example" style="background-color: #79A7FF;"></div>
+                <p>Tranquilo</p>
+            </div>
+            <div class="d-flex align-items-center color-box">
+                <div class="color-example" style="background-color: #FCFF79;"></div>
+                <p>Moderado</p>
+            </div>
+            <div class="d-flex align-items-center color-box">
+                <div class="color-example" style="background-color: #FF7979;"></div>
+                <p>Urgente</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-8 d-flex align-items-center justify-content-between">
+        <app-card-column [title]="'Novas'" [color]="'#1E2160'">
+            <div *ngFor="let card of newCardsList">
+                <app-card [card]="card" (cardMove)="updateCardsList()" (deleteCard)="onDeleteCard(card)"></app-card>
+            </div>
+        </app-card-column>
+        <app-card-column [title]="'Fazendo'" [color]="'#601E1E'">
+            <div *ngFor="let card of makingCardsList">
+                <app-card [card]="card" (cardMove)="updateCardsList()" (deleteCard)="onDeleteCard(card)"></app-card>
+            </div>
+        </app-card-column>
+        <app-card-column [title]="'Testando'" [color]="'#4F601E'">
+            <div *ngFor="let card of testCardsList">
+                <app-card [card]="card" (cardMove)="updateCardsList()" (deleteCard)="onDeleteCard(card)"></app-card>
+            </div>
+        </app-card-column>
+        <app-card-column [title]="'Prontas'" [color]="'#1E6029'">
+            <div *ngFor="let card of finishCardsList">
+                <app-card [card]="card" (cardMove)="updateCardsList()" (deleteCard)="onDeleteCard(card)"></app-card>
+            </div>
+        </app-card-column>
+    </div>
 </div>
